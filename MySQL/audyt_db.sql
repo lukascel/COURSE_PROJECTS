@@ -2,6 +2,13 @@ CREATE DATABASE Audyt;
 
 USE Audyt;
 
+CREATE TABLE `logowanie` (
+  `id`         int(11) NOT NULL AUTO_INCREMENT,
+  `login`      varchar(30) NOT NULL,
+  `password`     varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 CREATE TABLE audytorzy (
 	id_audytora		INT PRIMARY  KEY AUTO_INCREMENT,
     imie_a      	TEXT NOT NULL,
@@ -99,16 +106,3 @@ INSERT INTO audyty(nr_audytu, nazwa_p, data_audytu, audytowane_pkt_ISO_9001, aud
 VALUES ('C-01/2018', 'Zarządzanie Majątkiem', '2018-03-08', '4.2, 6.3, 8.5', '4.2, 7.1, 8.2', '4.1, 6.1, 6.3', '201801-01', "brak świadomości polityki jakości i celów jakości w jednostce organizacyjnej", 'ZAMKNIETA','2018-06-08', 'Łukasz Celej', 'Łukasz Celej', 'kierownik dz. Utrzymania Nieruchomości');
 
 DELETE FROM audyty WHERE odpowiedzialny = 'Łukasz Celej';
-
-
-
-
-
-
-SELECT procesy.id_procesu, procesy.nazwa_p, audyty.nr_audytu, audyty.niezg_tresc, audyty.termin_zamkniecia
-FROM procesy JOIN audyty on procesy.id_procesu = audyty.id_procesu
-WHERE stan = 'W TRAKCIE' OR stan = 'ZAMKNIETA';
-
-SELECT *
-FROM procesy LEFT JOIN audyty on procesy.id_procesu = audyty.id_procesu
-WHERE stan = 'W TRAKCIE' OR stan = 'OTWARTA';
