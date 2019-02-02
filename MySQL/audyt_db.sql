@@ -5,9 +5,14 @@ USE Audyt;
 CREATE TABLE `logowanie` (
   `id`         int(11) NOT NULL AUTO_INCREMENT,
   `login`      varchar(30) NOT NULL,
-  `password`     varchar(45) NOT NULL,
+  `passwd`     varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+DESCRIBE logowanie;
+
+INSERT INTO logowanie VALUES(id, 'admin', 'admin1');
+
+select * from logowanie;
 
 CREATE TABLE audytorzy (
 	id_audytora		INT PRIMARY  KEY AUTO_INCREMENT,
@@ -16,7 +21,7 @@ CREATE TABLE audytorzy (
     uprISO9001		DATE,
     uprISO14001		DATE,
     uprOHSAS18001	DATE);
-
+    
 DESCRIBE audytorzy; 
 
 INSERT INTO audytorzy(id_audytora, imie_a, nazwisko_a, uprISO9001, uprISO14001, uprOHSAS18001) VALUES ( 1, 'Dorota' , 'Kozłowska', '2020-12-12', '2020-12-12', '2020-12-12');   
@@ -96,7 +101,7 @@ INSERT INTO audyty(nr_audytu, nazwa_p, data_audytu, audytowane_pkt_ISO_9001, aud
 VALUES ('C-05/2018','Sprzedaż gazu ziemnego','2018-09-15', '4.1, 6.3, 7.2', '4.1, 7.0, 8.1', '4.3, 6.0, 6.0', '1201805-02', "stwierdzono skargi wobec których nie podjęto zadnych działań", 'OTWARTA','2018-12-31', 'Anna Kowalska', 'Łukasz Celej', 'kierownik dz. Komunikacji');
 
 
-SELECT * FROM audyty;
+SELECT * FROM audytorzy;
 
 SELECT * FROM audytorzy WHERE uprISO9001 <='2019-12-31' OR uprISO14001 <='2019-12-31' OR uprOHSAS18001 <='2019-12-31';
 
