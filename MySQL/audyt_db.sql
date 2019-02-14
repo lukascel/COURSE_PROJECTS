@@ -84,6 +84,7 @@ CREATE TABLE audyty (
   
 DESCRIBE audyty;
 DROP TABLE audyty;
+truncate table audyty;
 
 INSERT INTO audyty(nr_audytu, nazwa_p, data_audytu, audytowane_pkt_ISO_9001, audytowane_pkt_ISO_14001, audytowane_pkt_OHSAS, niezgodnosc_nr, niezg_tresc, stan, termin_zamkniecia, odpowiedzialny, audytor, audytowany)
 VALUES ('C-01/2018', 'Zarządzanie Majątkiem', '2018-03-08', '4.2, 6.3, 8.5', '4.2, 7.1, 8.2', '4.1, 6.1, 6.3', '201801-01', "brak świadomości polityki jakości i celów jakości w jednostce organizacyjnej", 'ZAMKNIETA','2018-06-08', 'Adam Kijewski', 'Łukasz Celej', 'kierownik dz. Utrzymania Nieruchomości');     
@@ -96,7 +97,7 @@ VALUES ('C-04/2018', 'Poszukiwanie Węglowodorów','2018-07-07', '4.4, 6.3, 8.3'
 INSERT INTO audyty(nr_audytu, nazwa_p, data_audytu, audytowane_pkt_ISO_9001, audytowane_pkt_ISO_14001, audytowane_pkt_OHSAS, niezgodnosc_nr, niezg_tresc, stan, termin_zamkniecia, odpowiedzialny, audytor, audytowany)
 VALUES ('C-04/2018','Poszukiwanie Węglowodorów','2018-07-07', '4.4, 6.3, 8.3', '4.4, 7.1, 8.1', '4.3, 5.1, 7.3', '1201804-02', "organizacja nie nadzoruje zmian prawnych w dziedzinie BHP", 'ZAMKNIETA','2018-10-17', 'Katarzyna Michalska', 'Dorota Kozłowska', 'kierownik dz. BHP');
 INSERT INTO audyty(nr_audytu, nazwa_p, data_audytu, audytowane_pkt_ISO_9001, audytowane_pkt_ISO_14001, audytowane_pkt_OHSAS, niezgodnosc_nr, niezg_tresc, stan, termin_zamkniecia, odpowiedzialny, audytor, audytowany)
-VALUES ('C-05/2018', 'Sprzedarz gazu ziemnego','2018-09-15', '4.1, 6.3, 7.2', '4.1, 7.0, 8.1', '4.3, 6.0, 6.0', '1201805-01', "brak jednolitej ścieżki rejestrowania i rozpatrzania reklamacji", 'ZAMKNIETA','2018-10-29', 'Anna Kowalska', 'Łukasz Celej', 'kierownik dz. Komunikacji');
+VALUES ('C-05/2018', 'Sprzedaż gazu ziemnego','2018-09-15', '4.1, 6.3, 7.2', '4.1, 7.0, 8.1', '4.3, 6.0, 6.0', '1201805-01', "brak jednolitej ścieżki rejestrowania i rozpatrzania reklamacji", 'ZAMKNIETA','2018-10-29', 'Anna Kowalska', 'Łukasz Celej', 'kierownik dz. Komunikacji');
 INSERT INTO audyty(nr_audytu, nazwa_p, data_audytu, audytowane_pkt_ISO_9001, audytowane_pkt_ISO_14001, audytowane_pkt_OHSAS, niezgodnosc_nr, niezg_tresc, stan, termin_zamkniecia, odpowiedzialny, audytor, audytowany)
 VALUES ('C-05/2018','Sprzedaż gazu ziemnego','2018-09-15', '4.1, 6.3, 7.2', '4.1, 7.0, 8.1', '4.3, 6.0, 6.0', '1201805-02', "stwierdzono skargi wobec których nie podjęto zadnych działań", 'OTWARTA','2018-12-31', 'Anna Kowalska', 'Łukasz Celej', 'kierownik dz. Komunikacji');
 
@@ -111,3 +112,5 @@ INSERT INTO audyty(nr_audytu, nazwa_p, data_audytu, audytowane_pkt_ISO_9001, aud
 VALUES ('C-01/2018', 'Zarządzanie Majątkiem', '2018-03-08', '4.2, 6.3, 8.5', '4.2, 7.1, 8.2', '4.1, 6.1, 6.3', '201801-01', "brak świadomości polityki jakości i celów jakości w jednostce organizacyjnej", 'ZAMKNIETA','2018-06-08', 'Łukasz Celej', 'Łukasz Celej', 'kierownik dz. Utrzymania Nieruchomości');
 
 DELETE FROM audyty WHERE odpowiedzialny = 'Łukasz Celej';
+
+SELECT * FROM audyty;

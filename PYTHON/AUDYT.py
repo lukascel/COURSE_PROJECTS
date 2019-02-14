@@ -58,7 +58,7 @@ class Audyt:
             uprISO9001 = 3
             uprISO14001 = 4
             uprOHSAS18001 = 5
-            print(row[imie], row[nazwisko], row[uprISO9001], row[uprISO14001], row[uprOHSAS18001])
+            print("%-10s %-10s %15s %15s %15s" % (row[imie], row[nazwisko], row[uprISO9001], row[uprISO14001], row[uprOHSAS18001]))
 
     def audytorzyTermin(self):
         termin_upr = input("podaj termin, wobec którego chcesz sprawdzić ważność uprawnień/format: YYYY-MM-DD/: ")
@@ -72,7 +72,7 @@ class Audyt:
             uprISO9001 = 3
             uprISO14001 = 4
             uprOHSAS18001 = 5
-            print(row[imie], row[nazwisko], row[uprISO9001], row[uprISO14001], row[uprOHSAS18001])
+            print("%-10s %-10s %15s %15s %15s" % (row[imie], row[nazwisko], row[uprISO9001], row[uprISO14001], row[uprOHSAS18001]))
 
     def audyty(self):
         self.cursor.execute("SELECT * FROM audyty")
@@ -93,23 +93,21 @@ class Audyt:
             odpowiedzialny = 11
             audytor = 12
             audytowany = 13
-            print(row[nazwa_procesu], row[nr_audytu], row[data_audytu], row[audytowane_pkt_ISO9001], row[audytowane_pkt_ISO14001], row[audytowane_pkt_OHSAS18001], row[niezgodnosc_nr], row[niezgodnosc_tresc], row[stan_niezgodnosci], row[termin_zamkniecia], row[odpowiedzialny], row[audytor], row[audytowany])
+            print("%-35s %-10s %-10s %-15s %-15s %-15s %-10s %-90s %-10s %-10s %-30s %-30s %-50s" % (row[nazwa_procesu], row[nr_audytu], row[data_audytu], row[audytowane_pkt_ISO9001], row[audytowane_pkt_ISO14001], row[audytowane_pkt_OHSAS18001], row[niezgodnosc_nr], row[niezgodnosc_tresc], row[stan_niezgodnosci], row[termin_zamkniecia], row[odpowiedzialny], row[audytor], row[audytowany]))
 
 
     def niezgodnosci(self):
         self.cursor.execute("SELECT id_procesu, nazwa_p, niezg_tresc, stan, termin_zamkniecia, odpowiedzialny FROM audyty WHERE stan = 'W TRAKCIE' OR stan = 'OTWARTA'")
         niezgodnosci = self.cursor.fetchall()
-
         print(type(niezgodnosci))
         for row in niezgodnosci:
             id_procesu = 1
-            nazwa_p = 2
-            niezg_tresc = 3
+            nazwa_procesu = 2
+            niezgodnosc_tresc = 3
             stan = 4
             termin_zamkniecia = 5
             odpowiedzialny = 6
-
-            print(row[id_procesu], row[nazwa_p], row[niezg_tresc], row[stan], row[termin_zamkniecia], row[odpowiedzialny])
+            print(row[id_procesu], row[nazwa_procesu], row[niezgodnosc_tresc], row[stan], row[termin_zamkniecia], row[odpowiedzialny])
 
     def dodajWynik(self):
         nazwa_procesu = input ("podaj nazwę procesu: ")
@@ -128,6 +126,7 @@ class Audyt:
 
         self.cursor.execute("INSERT INTO audyty (nazwa_p,nr_audytu,data_audytu,audytowane_pkt_ISO_9001,audytowane_pkt_ISO_14001,audytowane_pkt_OHSAS,niezgodnosc_nr,niezg_tresc,stan,termin_zamkniecia,odpowiedzialny,audytor,audytowany) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (nazwa_procesu, nr_audytu, data_audytu, punktyISO9001, punktyISO14001, punktyOHSAS, numer_niezgodnosci, tresc_niezgodnosci, stan_niezgodnosci, termin_zamkniecia, odpowiedzialny, audytor, audytowany))
         self.conn.commit()
+        print("Dodałeś rekor do bazy danych. Dziękuję!")
 
     def wyjscie(self):
         print("wyszedłeś z programu! Zapraszamy ponownie")
