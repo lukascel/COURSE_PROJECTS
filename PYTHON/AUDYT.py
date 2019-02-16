@@ -39,7 +39,7 @@ class Audyt:
                 self.audyty()
 
             elif (dec == 'N'):#wyswietlanie niezgodności o statusie "w trakcie"
-                self.niezgodnosc()
+                self.niezgodnosci()
 
             elif (dec == 'DA'): #dodawanie wyników audytu
                 self.dodajWynik()
@@ -51,7 +51,6 @@ class Audyt:
         self.cursor.execute("SELECT * FROM audytorzy")
         audytorzy = self.cursor.fetchall()
 
-        print(type(audytorzy))
         for row in audytorzy:
             imie = 1
             nazwisko = 2
@@ -65,7 +64,6 @@ class Audyt:
         self.cursor.execute("SELECT * FROM audytorzy WHERE uprISO9001 <= %s OR uprISO14001 <= %s OR uprOHSAS18001 <= %s", (termin_upr, termin_upr, termin_upr))
         audytorzyTermin = self.cursor.fetchall()
 
-        print(type(audytorzyTermin))
         for row in audytorzyTermin:
             imie = 1
             nazwisko = 2
@@ -78,7 +76,6 @@ class Audyt:
         self.cursor.execute("SELECT * FROM audyty")
         audyty = self.cursor.fetchall()
 
-        print(type(audyty))
         for row in audyty:
             nazwa_procesu = 1
             nr_audytu = 2
@@ -99,15 +96,15 @@ class Audyt:
     def niezgodnosci(self):
         self.cursor.execute("SELECT id_procesu, nazwa_p, niezg_tresc, stan, termin_zamkniecia, odpowiedzialny FROM audyty WHERE stan = 'W TRAKCIE' OR stan = 'OTWARTA'")
         niezgodnosci = self.cursor.fetchall()
-        print(type(niezgodnosci))
+
         for row in niezgodnosci:
-            id_procesu = 1
-            nazwa_procesu = 2
-            niezgodnosc_tresc = 3
-            stan = 4
-            termin_zamkniecia = 5
-            odpowiedzialny = 6
-            print(row[id_procesu], row[nazwa_procesu], row[niezgodnosc_tresc], row[stan], row[termin_zamkniecia], row[odpowiedzialny])
+            id_procesu = 0
+            nazwa_procesu = 1
+            niezgodnosc_tresc = 2
+            stan = 3
+            termin_zamkniecia = 4
+            odpowiedzialny = 5
+            print("%-10s %-35s %-90s %-10s %-10s %-30s" % (row[id_procesu], row[nazwa_procesu], row[niezgodnosc_tresc], row[stan], row[termin_zamkniecia], row[odpowiedzialny]))
 
     def dodajWynik(self):
         nazwa_procesu = input ("podaj nazwę procesu: ")
@@ -118,7 +115,7 @@ class Audyt:
         punktyOHSAS = input ("podaj audytowane punkty  OHSAS 18001 /np.: 4.2. 6.3 itd./: ")
         numer_niezgodnosci = input("podaj numer niezgodności /format: 201801-01/: ")
         tresc_niezgodnosci = input("podaj treść niezgodności: ")
-        stan_niezgodnosci = input("Podaj stan niezgodności /OTWARTA/ W TRAKCIE/ ZAMKNIĘTA/: ")
+        stan_niezgodnosci = input("Podaj stan niezgodności / OTWARTA/ W TRAKCIE/ ZAMKNIĘTA/: ")
         termin_zamkniecia = input("podaj termin zamknięcia /format: YYYY-MM-DD/: ")
         odpowiedzialny = input("podaj imię i nazwisko pracownika odpowiedzialnego za usunięcie niezgodności: ")
         audytor = input("podaj imię i nazwisko audytora: ")
@@ -126,10 +123,10 @@ class Audyt:
 
         self.cursor.execute("INSERT INTO audyty (nazwa_p,nr_audytu,data_audytu,audytowane_pkt_ISO_9001,audytowane_pkt_ISO_14001,audytowane_pkt_OHSAS,niezgodnosc_nr,niezg_tresc,stan,termin_zamkniecia,odpowiedzialny,audytor,audytowany) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (nazwa_procesu, nr_audytu, data_audytu, punktyISO9001, punktyISO14001, punktyOHSAS, numer_niezgodnosci, tresc_niezgodnosci, stan_niezgodnosci, termin_zamkniecia, odpowiedzialny, audytor, audytowany))
         self.conn.commit()
-        print("Dodałeś rekor do bazy danych. Dziękuję!")
+        print("Dodałeś rekord do bazy danych. Dziękuję!")
 
     def wyjscie(self):
         print("wyszedłeś z programu! Zapraszamy ponownie")
-
+        exit()
 
 Audyt = Audyt()
