@@ -44,7 +44,7 @@ INSERT INTO pracownicy(id_pracownika, imie_p, nazwisko_p, stanowisko_p, jednostk
 INSERT INTO pracownicy(id_pracownika, imie_p, nazwisko_p, stanowisko_p, jednostka_p) VALUES ( 3, 'Krzysztof' , 'Krzysztoforski', 'Specjalista Informatyk', 'Departament IT');     
 INSERT INTO pracownicy(id_pracownika, imie_p, nazwisko_p, stanowisko_p, jednostka_p) VALUES ( 4, 'Agnieszka' , 'Kowalska', 'Młodszy Specjalista ds. Zakupów', 'Departament Zakupów');     
 INSERT INTO pracownicy(id_pracownika, imie_p, nazwisko_p, stanowisko_p, jednostka_p) VALUES ( 5, 'Katarzyna' , 'Michalska', 'Radca Prawny', 'Departament Prawny');
-INSERT INTO pracownicy(id_pracownika, imie_p, nazwisko_p, stanowisko_p, jednostka_p) VALUES ( 5, 'Anna' , 'Kowalska', 'Specjalista Geolog', 'Oddział Geologii i Eksploatacji');        
+INSERT INTO pracownicy(id_pracownika, imie_p, nazwisko_p, stanowisko_p, jednostka_p) VALUES ( 6, 'Anna' , 'Kowalska', 'Specjalista Geolog', 'Oddział Geologii i Eksploatacji');        
 
 DESCRIBE pracownicy;
 select * from pracownicy;
@@ -83,23 +83,22 @@ CREATE TABLE audyty (
     );
   
 DESCRIBE audyty;
-DROP TABLE audyty;
 truncate table audyty;
 
 INSERT INTO audyty(nr_audytu, nazwa_p, data_audytu, audytowane_pkt_ISO_9001, audytowane_pkt_ISO_14001, audytowane_pkt_OHSAS, niezgodnosc_nr, niezg_tresc, stan, termin_zamkniecia, odpowiedzialny, audytor, audytowany)
 VALUES ('C-01/2018', 'Zarządzanie Majątkiem', '2018-03-08', '4.2, 6.3, 8.5', '4.2, 7.1, 8.2', '4.1, 6.1, 6.3', '201801-01', "brak świadomości polityki jakości i celów jakości w jednostce organizacyjnej", 'ZAMKNIETA','2018-06-08', 'Adam Kijewski', 'Łukasz Celej', 'kierownik dz. Utrzymania Nieruchomości');     
 INSERT INTO audyty(nr_audytu, nazwa_p, data_audytu, audytowane_pkt_ISO_9001, audytowane_pkt_ISO_14001, audytowane_pkt_OHSAS, niezgodnosc_nr, niezg_tresc, stan, termin_zamkniecia, odpowiedzialny, audytor, audytowany)
-VALUES ('C-02/2018', 'Zarządzanie Zakupami','2018-05-12', '4.4, 5.3, 7.3', '4.3, 6.1, 7.2', '4, 6.3, 7.3', '1201802-01', "brak zdefiniowanych wskazników i mierników dla procesu" , 'ZAMKNIETA','2018-07-01', 'Agnieszka Kowalska', 'Aleksandra Kędzior', 'kierownik dz. Zakupów Specjalnych');
+VALUES ('C-02/2018', 'Zarządzanie Zakupami','2018-05-12', '4.4, 5.3, 7.3', '4.3, 6.1, 7.2', '4, 6.3, 7.3', '201802-01', "brak zdefiniowanych wskazników i mierników dla procesu" , 'ZAMKNIETA','2018-07-01', 'Agnieszka Kowalska', 'Aleksandra Kędzior', 'kierownik dz. Zakupów Specjalnych');
 INSERT INTO audyty(nr_audytu, nazwa_p, data_audytu, audytowane_pkt_ISO_9001, audytowane_pkt_ISO_14001, audytowane_pkt_OHSAS, niezgodnosc_nr, niezg_tresc, stan, termin_zamkniecia, odpowiedzialny, audytor, audytowany)
-VALUES ('C-03/2018', 'Zarządzanie Majątkiem','2018-06-17', '4.3, 5.3, 7.5', '4.3, 7.1, 8.3', '4.2, 6.0, 6.8', '1201803-01', "brak zapisów potywierdzajacych realizację planów środowiskowych jednostki", 'ZAMKNIETA','2018-09-25', 'Krzysztof Krzysztoforski', 'Michał Jońca', 'kierownik dz. Zarządzania Majatkiem IT');
+VALUES ('C-03/2018', 'Zarządzanie Majątkiem','2018-06-17', '4.3, 5.3, 7.5', '4.3, 7.1, 8.3', '4.2, 6.0, 6.8', '201803-01', "brak zapisów potywierdzajacych realizację planów środowiskowych jednostki", 'ZAMKNIETA','2018-09-25', 'Krzysztof Krzysztoforski', 'Michał Jońca', 'kierownik dz. Zarządzania Majatkiem IT');
 INSERT INTO audyty(nr_audytu, nazwa_p, data_audytu, audytowane_pkt_ISO_9001, audytowane_pkt_ISO_14001, audytowane_pkt_OHSAS, niezgodnosc_nr, niezg_tresc, stan, termin_zamkniecia, odpowiedzialny, audytor, audytowany)
-VALUES ('C-04/2018', 'Poszukiwanie Węglowodorów','2018-07-07', '4.4, 6.3, 8.3', '4.4, 7.1, 8.1', '4.3, 5.1, 7.3', '1201804-01', "organizacja nie posiada jednolitego wzoru dokumentacji projektowej", 'ZAMKNIETA','2018-10-08', 'Anna Kowalska', 'Anna Markiewicz', 'kierownik dz. Projektowego');
+VALUES ('C-04/2018', 'Poszukiwanie Węglowodorów','2018-07-07', '4.4, 6.3, 8.3', '4.4, 7.1, 8.1', '4.3, 5.1, 7.3', '201804-01', "organizacja nie posiada jednolitego wzoru dokumentacji projektowej", 'ZAMKNIETA','2018-10-08', 'Anna Kowalska', 'Anna Markiewicz', 'kierownik dz. Projektowego');
 INSERT INTO audyty(nr_audytu, nazwa_p, data_audytu, audytowane_pkt_ISO_9001, audytowane_pkt_ISO_14001, audytowane_pkt_OHSAS, niezgodnosc_nr, niezg_tresc, stan, termin_zamkniecia, odpowiedzialny, audytor, audytowany)
-VALUES ('C-04/2018','Poszukiwanie Węglowodorów','2018-07-07', '4.4, 6.3, 8.3', '4.4, 7.1, 8.1', '4.3, 5.1, 7.3', '1201804-02', "organizacja nie nadzoruje zmian prawnych w dziedzinie BHP", 'ZAMKNIETA','2018-10-17', 'Katarzyna Michalska', 'Dorota Kozłowska', 'kierownik dz. BHP');
+VALUES ('C-04/2018','Poszukiwanie Węglowodorów','2018-07-07', '4.4, 6.3, 8.3', '4.4, 7.1, 8.1', '4.3, 5.1, 7.3', '201804-02', "organizacja nie nadzoruje zmian prawnych w dziedzinie BHP", 'ZAMKNIETA','2018-10-17', 'Katarzyna Michalska', 'Dorota Kozłowska', 'kierownik dz. BHP');
 INSERT INTO audyty(nr_audytu, nazwa_p, data_audytu, audytowane_pkt_ISO_9001, audytowane_pkt_ISO_14001, audytowane_pkt_OHSAS, niezgodnosc_nr, niezg_tresc, stan, termin_zamkniecia, odpowiedzialny, audytor, audytowany)
-VALUES ('C-05/2018', 'Sprzedaż gazu ziemnego','2018-09-15', '4.1, 6.3, 7.2', '4.1, 7.0, 8.1', '4.3, 6.0, 6.0', '1201805-01', "brak jednolitej ścieżki rejestrowania i rozpatrzania reklamacji", 'ZAMKNIETA','2018-10-29', 'Anna Kowalska', 'Łukasz Celej', 'kierownik dz. Komunikacji');
+VALUES ('C-05/2018', 'Sprzedaż gazu ziemnego','2018-09-15', '4.1, 6.3, 7.2', '4.1, 7.0, 8.1', '4.3, 6.0, 6.0', '201805-01', "brak jednolitej ścieżki rejestrowania i rozpatrzania reklamacji", 'ZAMKNIETA','2018-10-29', 'Anna Kowalska', 'Łukasz Celej', 'kierownik dz. Komunikacji');
 INSERT INTO audyty(nr_audytu, nazwa_p, data_audytu, audytowane_pkt_ISO_9001, audytowane_pkt_ISO_14001, audytowane_pkt_OHSAS, niezgodnosc_nr, niezg_tresc, stan, termin_zamkniecia, odpowiedzialny, audytor, audytowany)
-VALUES ('C-05/2018','Sprzedaż gazu ziemnego','2018-09-15', '4.1, 6.3, 7.2', '4.1, 7.0, 8.1', '4.3, 6.0, 6.0', '1201805-02', "stwierdzono skargi wobec których nie podjęto zadnych działań", 'OTWARTA','2018-12-31', 'Anna Kowalska', 'Łukasz Celej', 'kierownik dz. Komunikacji');
+VALUES ('C-05/2018','Sprzedaż gazu ziemnego','2018-09-15', '4.1, 6.3, 7.2', '4.1, 7.0, 8.1', '4.3, 6.0, 6.0', '201805-02', "stwierdzono skargi wobec których nie podjęto zadnych działań", 'OTWARTA','2018-12-31', 'Anna Kowalska', 'Łukasz Celej', 'kierownik dz. Komunikacji');
 
 
 SELECT * FROM audytorzy;
